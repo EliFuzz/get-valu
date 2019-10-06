@@ -1,0 +1,10 @@
+version: "3.7"
+
+services:
+  app:
+    image: node:12.10.0
+    stdin_open: true
+    tty: true
+    volumes:
+      - .:/workspace
+    working_dir: /workspace
