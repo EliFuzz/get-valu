@@ -13,7 +13,21 @@
     "type": "git",
     "url": "git+https://github.com/EliFuzz/get-valu.git"
   },
-  "keywords": [],
+  "keywords": [
+    "get",
+    "key",
+    "nested",
+    "object",
+    "path",
+    "paths",
+    "prop",
+    "properties",
+    "property",
+    "props",
+    "segment",
+    "value",
+    "values"
+  ],
   "author": "Roman Glushach",
   "license": "MIT",
   "bugs": {
