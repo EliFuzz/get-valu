@@ -11,52 +11,21 @@ function get(obj, path) {
     return undefined;
   }
 
-  while (path.length !== 0) {
-    let prop;
-    const startArrIndex = path.indexOf("[");
-    if (startArrIndex === 0) {
-      const endArrIndex = path.indexOf("]");
-      prop = path.slice(1, endArrIndex).replace(/(^["']|["']$)/g, "");
-      path = path.slice(endArrIndex + 1).replace(/^\./, "");
+  const props = path
+    .split(/('[^'"]+'|[^[\].]+)/g)
+    .filter(function(data) {
+      return data.match(/[^[\].]/g);
+    })
+    .map(function(el) {
+      return el[0] === "'" || el[0] === '"' ? el.slice(1, -1) : el;
+    });
 
-      if (!obj.hasOwnProperty(prop)) {
-        return undefined;
-      }
-
-      obj = obj[prop];
-      continue;
+  for (const prop of props) {
+    if (!obj.hasOwnProperty(prop)) {
+      return undefined;
     }
 
-    const startPropIndex = path.indexOf(".");
-    const isArrFirst = startPropIndex === -1 || startArrIndex < startPropIndex;
-    if (startArrIndex !== -1 && isArrFirst) {
-      prop = path.slice(0, startArrIndex);
-      path = path.slice(startArrIndex);
-
-      if (!obj.hasOwnProperty(prop)) {
-        return undefined;
-      }
-
-      obj = obj[prop];
-      continue;
-    }
-
-    if (!prop && startPropIndex !== -1) {
-      prop = path.slice(0, startPropIndex);
-      path = path.slice(startPropIndex + 1);
-
-      if (!obj.hasOwnProperty(prop)) {
-        return undefined;
-      }
-
-      obj = obj[prop];
-      continue;
-    }
-
-    if (!prop) {
-      obj = obj[path];
-      break;
-    }
+    obj = obj[prop];
   }
 
   return obj !== null ? obj : undefined;

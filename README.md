@@ -4,7 +4,7 @@ Why you should consider using this project:
 - VanillaJS
 - no dependencies
 - lightweight and fast
-- supports all modern browsers and systems
+- supports all browsers and systems
 - simplicity
 - returns only 2 options: either `undefined` or desired value
 - second parameter (`path`) works as simple as `copy-paste`
