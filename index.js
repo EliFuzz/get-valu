@@ -11,14 +11,13 @@ function get(obj, path) {
     return undefined;
   }
 
-  const props = path
-    .split(/('[^'"]+'|[^[\].]+)/g)
-    .filter(function(data) {
-      return data.match(/[^[\].]/g);
-    })
-    .map(function(el) {
-      return el[0] === "'" || el[0] === '"' ? el.slice(1, -1) : el;
-    });
+  const props = path.split(/('[^'"]+'|[^[\].]+)/g).reduce(function(acc, curr) {
+    if (!!curr.match(/[^[\].]/g)) {
+      acc.push(curr[0] === "'" || curr[0] === '"' ? curr.slice(1, -1) : curr);
+    }
+
+    return acc;
+  }, []);
 
   for (const prop of props) {
     if (!obj.hasOwnProperty(prop)) {
