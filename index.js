@@ -11,15 +11,10 @@ function get(obj, path) {
     return undefined;
   }
 
-  const props = path.split(/('[^'"]+'|[^[\].]+)/g).reduce(function(acc, curr) {
-    if (!!curr.match(/[^[\].]/g)) {
-      acc.push(curr[0] === "'" || curr[0] === '"' ? curr.slice(1, -1) : curr);
-    }
+  var props = path.match(/(?<=["']).+(?=['"])|[\w]+/g) || [];
 
-    return acc;
-  }, []);
-
-  for (const prop of props) {
+  for (var i = 0; i < props.length; i++) {
+    var prop = props[i];
     if (!obj.hasOwnProperty(prop)) {
       return undefined;
     }
