@@ -1,5 +1,18 @@
 # get-valu
 
+---
+
+<p>
+  <a href="https://travis-ci.org/EliFuzz/get-valu" target="_blank">
+    <img src="https://travis-ci.org/EliFuzz/get-valu.svg?branch=master" alt="travis-ci">
+  </a>
+  <a href="https://codecov.io/gh/EliFuzz/get-valu" target="_blank">
+    <img src="https://codecov.io/gh/EliFuzz/get-valu/branch/master/graph/badge.svg" alt="codecov"/>
+  </a>
+</p>
+
+---
+
 Why you should consider using this project:
 - VanillaJS
 - no dependencies
@@ -69,3 +82,7 @@ For more examples look [unit tests](index.test.js).
 ## Benchmarks
 
 [JS Benchmark](https://jsbench.me/34k1fmd0r2)
+
+## LICENSE
+
+[![GitHub](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/EliFuzz/get-valu/blob/master/LICENSE)
