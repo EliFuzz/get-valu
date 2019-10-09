@@ -1,7 +1,5 @@
 # get-valu
 
----
-
 <p>
   <a href="https://travis-ci.org/EliFuzz/get-valu" target="_blank">
     <img src="https://travis-ci.org/EliFuzz/get-valu.svg?branch=master" alt="travis-ci">
@@ -11,7 +9,6 @@
   </a>
 </p>
 
----
 
 Why you should consider using this project:
 - VanillaJS
