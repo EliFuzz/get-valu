@@ -1,9 +1,5 @@
 function get(obj, path) {
-  if (
-    typeof obj === "string" ||
-    typeof obj === "number" ||
-    typeof obj === "boolean"
-  ) {
+  if (typeof obj !== "object" && typeof obj !== "function") {
     return undefined;
   }
 
@@ -22,7 +18,7 @@ function get(obj, path) {
     obj = obj[prop];
   }
 
-  return obj !== null ? obj : undefined;
+  return obj;
 }
 
 module.exports = get;
